@@ -14,9 +14,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
     if(response.statusCode == 200){
       String data = response.body;
       var decodedData = converter.jsonDecode(data);
-      var temp = decodedData['main']['temp'];
-      var condition = decodedData(data)['weather'][0]['main'];
-      var city = decodedData(data)['name'];
+      double temp = decodedData['main']['temp'];
+      int condition = decodedData(data)['weather'][0]['id'];
+      String city = decodedData(data)['name'];
     }
     else{
       print(response.statusCode);
