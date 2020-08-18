@@ -13,8 +13,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
     http.Response response =  await http.get('https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=439d4b804bc8187953eb36d2a8c26a02');
     if(response.statusCode == 200){
       String data = response.body;
-      data = converter.jsonDecode(data)['coords']['lon'];
-      print(data);
+      var long = converter.jsonDecode(data)['coords']['lon'];
+      print(long);
     }
     else{
       print(response.statusCode);
