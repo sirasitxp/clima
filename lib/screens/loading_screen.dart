@@ -31,8 +31,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
     NetWorkHelper netWorkHelper = NetWorkHelper(url:"https://api.openweathermap.org"
         "/data/2.5/weather?lat=$latitude&lon=$longitude&appid=$apiKey");
 
+    var weatherData = await netWorkHelper.getData();
+
     Navigator.push(context, MaterialPageRoute(builder: (context){
-      return LocationScreen();
+      return LocationScreen(locationWeather: weatherData,);
     }));
   }
 
