@@ -24,13 +24,20 @@ class _LocationScreenState extends State<LocationScreen> {
   }
 
   void updateUI(dynamic weatherData){
-    temp = weatherData['main']['temp'].toInt();
-    var condition = weatherData['weather'][0]['id'];
-    city = weatherData['name'];
-    weatherIcon = weather.getWeatherIcon(condition);
-    message = weather.getMessage(temp);
-
-
+    setState(() {
+      if (weatherData == null){
+        temp = 0;
+        weatherIcon = 'Error';
+        message = "Unable to get weather data";
+        city = '';
+        return;
+      }
+      temp = weatherData['main']['temp'].toInt();
+      var condition = weatherData['weather'][0]['id'];
+      city = weatherData['name'];
+      weatherIcon = weather.getWeatherIcon(condition);
+      message = weather.getMessage(temp);
+    });
   }
   @override
   Widget build(BuildContext context) {
