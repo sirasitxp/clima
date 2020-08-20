@@ -80,7 +80,7 @@ class _LocationScreenState extends State<LocationScreen> {
                       ),
                       );
                       if (typedName != null){
-                        
+
                       }
                     },
                     child: Icon(
